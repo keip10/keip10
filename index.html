@@ -3,286 +3,381 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Get To Know Me - Mi Portafolio</title>
+  <title>Welcome To My World</title>
   
-  <!-- Fuentes estilo Serif y Pixel/Decorativa -->
+  <!-- Fuentes Cursiva Elegante y Sans Serif limpia -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:ital,wght@0,600;1,400&family=VT323&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-    /* Fondo rosado con puntos (polka dot) */
+    :root {
+      --bg-pink: #fce4ec;
+      --dots-brown: #3e2723;
+      --choco-dark: #2c1a17;
+      --choco-medium: #4a2e2b;
+      --pink-lace: #f8bbd0;
+      --pink-accent: #f48fb1;
+      --cream-bg: #fff8f6;
+      --border-lace: #d8a7b8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Fondo rosa con lunares marrón oscuro */
     body {
       margin: 0;
-      padding: 30px 15px;
-      background-color: #fce4ec;
-      background-image: radial-gradient(#d8a7b8 1.5px, transparent 1.5px);
-      background-size: 18px 18px;
-      font-family: 'Playfair Display', serif;
-      color: #5c474e;
+      padding: 40px 15px;
+      background-color: var(--bg-pink);
+      background-image: radial-gradient(var(--dots-brown) 2px, transparent 2px);
+      background-size: 22px 22px;
+      font-family: 'Quicksand', sans-serif;
+      color: #3e2723;
       display: flex;
       justify-content: center;
     }
 
-    /* Contenedor estilo hoja/página de collage */
-    .scrapbook-container {
-      max-width: 850px;
+    /* Contenedor Principal tipo Marco Chocolate */
+    .wrapper {
+      max-width: 800px;
       width: 100%;
-      background: #fdf8f5;
-      padding: 40px 30px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      background-color: var(--choco-dark);
+      border: 12px solid var(--choco-medium);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      padding: 20px;
       position: relative;
-      border: 8px solid #f4dcd6;
     }
 
-    /* Título principal */
-    h1.title {
-      font-family: 'VT323', monospace;
-      font-size: 3.2rem;
+    /* Listón Rosa Superior con Moño Cruzado */
+    .top-ribbon-bar {
+      background: var(--choco-medium);
+      border: 2px solid #5d3a36;
+      border-radius: 10px;
+      padding: 15px;
       text-align: center;
-      color: #a8818c;
-      letter-spacing: 4px;
-      margin-top: 10px;
-      margin-bottom: 30px;
-      text-shadow: 2px 2px 0px #fff;
+      position: relative;
+      margin-bottom: 15px;
     }
 
-    /* Layout principal de dos columnas estilo libre */
-    .grid-layout {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-      align-items: flex-start;
+    .ribbon-cross {
+      width: 100px;
+      height: 20px;
+      margin: 0 auto 10px auto;
+      position: relative;
+    }
+    .ribbon-cross::before, .ribbon-cross::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      background-color: var(--pink-accent);
+      border-radius: 2px;
+    }
+    .ribbon-cross::before { transform: rotate(8deg); }
+    .ribbon-cross::after { transform: rotate(-8deg); }
+
+    /* Cartel Welcome To... */
+    .welcome-banner {
+      background: #ffffff;
+      border: 3px dashed var(--pink-accent);
+      border-radius: 30px;
+      display: inline-block;
+      padding: 5px 40px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.2rem;
+      color: var(--choco-dark);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
 
-    .col-left {
-      flex: 1;
-      min-width: 280px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 25px;
+    /* Franja de Encaje (Lace) */
+    .lace-divider {
+      height: 25px;
+      background-color: var(--pink-lace);
+      background-image: radial-gradient(circle at 10px 0, var(--cream-bg) 8px, transparent 9px);
+      background-size: 20px 25px;
+      margin: 15px 0;
+      border-radius: 5px;
+      border-bottom: 2px solid var(--border-lace);
     }
 
-    .col-right {
-      flex: 1.2;
-      min-width: 280px;
-      display: flex;
-      flex-direction: column;
+    /* Area Central Crema */
+    .main-content {
+      background-color: var(--cream-bg);
+      border: 4px solid var(--choco-medium);
+      border-radius: 15px;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 240px 1fr;
       gap: 20px;
     }
 
-    /* Marco de foto con gancho/pin */
-    .photo-frame {
+    @media (max-width: 650px) {
+      .main-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Columna Izquierda: Foto y Redes */
+    .left-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    /* Marco de Foto Chocolate con Moño */
+    .photo-box {
+      background: var(--choco-medium);
+      padding: 10px;
+      border-radius: 12px;
+      border: 3px solid var(--pink-lace);
       position: relative;
-      background: #ffffff;
-      padding: 12px 12px 25px 12px;
-      box-shadow: 3px 5px 15px rgba(0,0,0,0.12);
-      transform: rotate(-2deg);
-      border: 1px solid #ebdada;
-      max-width: 260px;
+      width: 100%;
+      max-width: 200px;
+      box-shadow: 3px 3px 10px rgba(0,0,0,0.15);
     }
 
-    /* Gancho rosa simulado arriba de la foto */
-    .clip {
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 35px;
-      height: 45px;
-      background: #e8b4b8;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-      border: 2px solid #fff;
-    }
-
-    .photo-frame img {
+    .photo-box img {
       width: 100%;
       height: auto;
-      border-radius: 4px;
+      border-radius: 8px;
       display: block;
+      border: 2px solid #ffffff;
     }
 
-    /* Títulos de sección (estilo cartel de píxeles) */
-    .section-title {
-      font-family: 'VT323', monospace;
-      font-size: 1.8rem;
-      color: #927078;
-      letter-spacing: 2px;
-      margin-bottom: -10px;
-      margin-left: 10px;
-      text-transform: uppercase;
-    }
-
-    /* Tarjeta verde/crema estilo etiqueta vintage con botón */
-    .tag-card-green {
-      background: #e8eee0;
-      border: 2px solid #c8d6b9;
-      border-radius: 6px;
-      padding: 15px 20px 15px 40px;
-      position: relative;
-      box-shadow: 2px 3px 8px rgba(0,0,0,0.05);
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    /* Botón decorativo izquierdo */
-    .tag-card-green::before {
-      content: "⁞";
+    .bow-decoration {
       position: absolute;
-      left: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 16px;
-      height: 16px;
-      background: #d0dec0;
-      border-radius: 50%;
-      border: 1px solid #a8b898;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--pink-accent);
+      color: white;
+      padding: 2px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      border: 2px solid white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    /* Enlaces / Redes Sociales */
+    .social-links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .social-btn {
+      background: var(--choco-dark);
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 20px;
+      border: 2px solid var(--pink-lace);
+      font-size: 0.85rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #788868;
-      font-size: 10px;
+      gap: 8px;
+      transition: transform 0.2s;
     }
 
-    /* Tarjeta rosa con borde de galleta (scalloped border) */
-    .tag-card-scallop {
-      background: #fbf0f0;
-      border: 3px dashed #dca8b0;
-      border-radius: 20px;
-      padding: 15px 20px;
-      box-shadow: 2px 3px 8px rgba(0,0,0,0.05);
-      font-size: 0.95rem;
-      line-height: 1.5;
-      position: relative;
+    .social-btn:hover {
+      transform: scale(1.03);
+      background: var(--choco-medium);
     }
 
-    /* Tarjeta grande de planificación (derecha) */
-    .planning-card {
-      background: #f7f3e8;
-      border: 2px solid #e2d3be;
-      border-radius: 12px;
-      padding: 25px;
-      position: relative;
-      box-shadow: 3px 4px 10px rgba(0,0,0,0.05);
+    /* Columna Derecha: Información */
+    .right-col {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
 
-    .planning-card h2 {
-      font-family: 'VT323', monospace;
+    .section-header {
+      font-family: 'Dancing Script', cursive;
       font-size: 2.2rem;
-      color: #d19a9a;
-      margin-top: 0;
-      letter-spacing: 3px;
+      color: var(--pink-accent);
+      text-align: center;
+      margin: 0;
+    }
+
+    .divider-ribbon {
+      text-align: center;
+      color: var(--pink-accent);
+      font-size: 14px;
+      margin: -5px 0 5px 0;
+    }
+
+    .info-card {
+      background: #ffffff;
+      border: 2px dashed var(--border-lace);
+      border-radius: 10px;
+      padding: 12px 15px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .bullets-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .bullets-list li::before {
+      content: "♥ ";
+      color: var(--pink-accent);
+    }
+
+    /* Galería de fotos mini */
+    .mini-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .mini-card {
+      background: var(--choco-medium);
+      padding: 6px;
+      border-radius: 8px;
+      border: 2px solid var(--pink-lace);
       text-align: center;
     }
 
-    .planning-card p {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+    .mini-card img {
+      width: 100%;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 4px;
     }
 
-    /* Enlaces dentro de las tarjetas */
-    a {
-      color: #927078;
-      font-weight: bold;
-      text-decoration: underline;
+    /* Menú / Botones Inferiores */
+    .bottom-nav {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 15px;
     }
 
-    /* Pequeños adornos flotantes (emojis/símbolos) */
-    .decor {
-      position: absolute;
-      font-size: 1.5rem;
-      user-select: none;
+    .nav-btn {
+      flex: 1;
+      background: #ffffff;
+      border: 3px double var(--choco-medium);
+      border-radius: 12px;
+      padding: 10px;
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.4rem;
+      color: var(--choco-dark);
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: background 0.2s;
+    }
+
+    .nav-btn:hover {
+      background: var(--pink-lace);
+    }
+
+    .footer-credits {
+      text-align: center;
+      color: var(--pink-lace);
+      font-size: 0.75rem;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
 
-  <div class="scrapbook-container">
+  <div class="wrapper">
     
-    <!-- Título superior -->
-    <h1 class="title">✿ GET TO KNOW ME ✿</h1>
+    <!-- Encabezado con Moño Rosa y Cartel -->
+    <div class="top-ribbon-bar">
+      <div class="ribbon-cross"></div>
+      <div class="welcome-banner">
+        Welcome To...
+      </div>
+    </div>
 
-    <div class="grid-layout">
+    <!-- Encaje Decorativo -->
+    <div class="lace-divider"></div>
+
+    <!-- Contenido Principal -->
+    <div class="main-content">
       
-      <!-- COLUMNA IZQUIERDA -->
-      <div class="col-left">
-        
-        <!-- Foto principal con gancho -->
-        <div class="photo-frame">
-          <div class="clip"></div>
-          <!-- Cambia esta URL por la de tu foto -->
+      <!-- Columna Izquierda -->
+      <div class="left-col">
+        <div class="photo-box">
+          <div class="bow-decoration">🎀</div>
+          <!-- Reemplaza con la URL de tu imagen -->
           <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400" alt="Mi Foto">
         </div>
 
-        <!-- Sección: Educación / Sobre mí -->
-        <div style="width: 100%;">
-          <div class="section-title">Programación</div>
-          <div class="tag-card-scallop">
-            Desarrollo proyectos web, aplicaciones e interfaces interactivas. ¡Mira mi código en GitHub!
-          </div>
+        <div class="social-links">
+          <a href="#" class="social-btn">📷 Instagram</a>
+          <a href="#" class="social-btn">🎵 TikTok</a>
+          <a href="#" class="social-btn">🐦 Twitter / X</a>
+          <a href="#" class="social-btn">💻 GitHub</a>
         </div>
-
-        <!-- Sección: Hobbies -->
-        <div style="width: 100%;">
-          <div class="section-title">Hobbies</div>
-          <div class="tag-card-green">
-            Mis actividades favoritas son escuchar música, la ilustración digital, el deporte y las manualidades.
-          </div>
-        </div>
-
-        <!-- Sección: Frase / Quote -->
-        <div style="width: 100%;">
-          <div class="section-title">Quote</div>
-          <div class="tag-card-scallop" style="font-style: italic; text-align: center;">
-            "Work hard in silence, let your success be your noise."
-          </div>
-        </div>
-
       </div>
 
-      <!-- COLUMNA DERECHA -->
-      <div class="col-right">
+      <!-- Columna Derecha -->
+      <div class="right-col">
         
-        <!-- Sección: Nombre -->
-        <div>
-          <div class="section-title">Nombre</div>
-          <div class="tag-card-green">
-            Hola, me presento. Mi nombre es Tu Nombre, pero puedes llamarme Tu Apodo.
+        <h2 class="section-header">{ Nombre }</h2>
+        <div class="divider-ribbon">୨୧┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈୨୧</div>
+
+        <div class="info-card">
+          ¡Hola! Bienvenido/a a mi sitio personal. Aquí comparto mis creaciones, proyectos de desarrollo, arte y actividades preferidas.
+        </div>
+
+        <div style="display: flex; gap: 10px;">
+          <div class="info-card" style="flex: 1;">
+            <ul class="bullets-list">
+              <li>Programación Web</li>
+              <li>Diseño e Ilustración</li>
+              <li>Manualidades / Bricolaje</li>
+              <li>Deportes y Rutinas</li>
+            </ul>
+          </div>
+
+          <!-- Galería Mini -->
+          <div class="mini-grid" style="flex: 1;">
+            <div class="mini-card">
+              <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=150" alt="Código">
+            </div>
+            <div class="mini-card">
+              <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=150" alt="Arte">
+            </div>
           </div>
         </div>
 
-        <!-- Sección: Arte y Manualidades -->
-        <div>
-          <div class="section-title">Arte & Manualidades</div>
-          <div class="tag-card-scallop">
-            Me encanta crear cosas a mano, desde dibujos y acuarelas hasta bricolaje y decoración.
-          </div>
-        </div>
+        <h2 class="section-header" style="font-size: 1.8rem; margin-top: 5px;">About me</h2>
+        <div class="divider-ribbon">୨୧┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈୨୧</div>
 
-        <!-- Sección: Deportes -->
-        <div>
-          <div class="section-title">Deporte</div>
-          <div class="tag-card-green">
-            Disfruto mantener una vida activa mediante rutinas de entrenamiento y actividades al aire libre.
-          </div>
-        </div>
-
-        <!-- Cuadro grande: Mis Planes / Objetivos -->
-        <div class="planning-card">
-          <h2>PLANNING :</h2>
-          <p>
-            Mi objetivo principal es seguir aprendiendo nuevas tecnologías de desarrollo web, perfeccionar mis habilidades artísticas y compartir todos mis proyectos en este rincón digital.
-          </p>
+        <div class="info-card">
+          Me encanta explorar distintas disciplinas creativas, desde el código hasta la costura y el dibujo. Explora los enlaces del menú inferior para conocer cada sección.
         </div>
 
       </div>
 
+    </div>
+
+    <!-- Encaje Decorativo -->
+    <div class="lace-divider"></div>
+
+    <!-- Navegación Inferior -->
+    <div class="bottom-nav">
+      <a href="#home" class="nav-btn">Home</a>
+      <a href="#proyectos" class="nav-btn">Interests</a>
+      <a href="#arte" class="nav-btn">Art Comms</a>
+    </div>
+
+    <div class="footer-credits">
+      by tu-usuario.github.io
     </div>
 
   </div>
